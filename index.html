@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>يومي مترتب — برنامج Coaching لمدة 6 أسابيع</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@300;400;600&family=Amiri:wght@400;700&display=swap">
+<style>
+:root{
+  --bg:#f6efe9; --ink:#2b2224; --muted:#6b5c5f; --plum:#5a2a41; --sage:#5f7a68; --sand:#e9dccf; --card:#fffaf5; --on-plum:#fbf3ec;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1e1719;--ink:#f3e9e1;--muted:#b9a9ab;--plum:#d9a3bb;--sage:#9dbba8;--sand:#33272b;--card:#281e21;--on-plum:#1e1719}}
+:root[data-theme="dark"]{--bg:#1e1719;--ink:#f3e9e1;--muted:#b9a9ab;--plum:#d9a3bb;--sage:#9dbba8;--sand:#33272b;--card:#281e21;--on-plum:#1e1719}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Readex Pro',Tahoma,sans-serif;font-weight:300;line-height:1.9;font-size:17px}
+h1,h2,h3{font-family:'Amiri','Traditional Arabic',serif;font-weight:700;line-height:1.5;margin:0}
+p{margin:0 0 1rem}
+.wrap{max-width:760px;margin:0 auto;padding:0 22px}
+section{padding:72px 0}
+h2{font-size:clamp(1.7rem,5vw,2.3rem);color:var(--plum);margin-bottom:1.2rem}
+.hero{padding:88px 0 72px}
+.hero h1{font-size:clamp(2.3rem,8vw,3.8rem);color:var(--plum);margin-bottom:1.6rem}
+.doubts{color:var(--muted);border-inline-start:3px solid var(--sage);padding-inline-start:18px;margin:1.6rem 0}
+.doubts p{margin:0 0 .3rem}
+.lead{font-size:1.15rem}
+.btn{display:inline-block;background:var(--plum);color:var(--on-plum);text-decoration:none;padding:14px 34px;border-radius:999px;font-weight:600;margin-top:.8rem}
+.btn:focus-visible{outline:3px solid var(--sage);outline-offset:3px}
+.sand{background:var(--sand)}
+.parts{display:grid;gap:16px;margin-top:1.6rem}
+.part{background:var(--card);border-radius:18px;padding:20px 24px}
+.part b{display:block;font-size:1.05rem;color:var(--plum);font-weight:600}
+.part span{color:var(--muted)}
+.checks{list-style:none;padding:0;margin:1.2rem 0}
+.checks li{padding-inline-start:34px;position:relative;margin-bottom:.9rem}
+.checks li::before{content:"✓";position:absolute;inset-inline-start:0;color:var(--sage);font-weight:600}
+.emph{font-family:'Amiri',serif;font-size:1.5rem;color:var(--plum);margin-top:1.5rem}
+.price{background:var(--plum);color:var(--on-plum);border-radius:28px;padding:40px 28px;text-align:center}
+.price h2{color:var(--on-plum)}
+.incl{display:flex;flex-wrap:wrap;justify-content:center;gap:10px 28px;margin:1.4rem 0}
+.incl div{min-width:120px}
+.incl strong{display:block;font-size:2.2rem;font-family:'Amiri',serif;line-height:1.2}
+.old{text-decoration:line-through;opacity:.7}
+.now{font-family:'Amiri',serif;font-size:3.4rem;font-weight:700;line-height:1.2}
+.facts{display:flex;justify-content:center;gap:24px;flex-wrap:wrap;margin:1.2rem 0 1.6rem}
+.price .btn{background:var(--on-plum);color:var(--plum)}
+.why{background:var(--card);border-radius:18px;padding:26px 26px 14px;margin-top:1.8rem}
+.why h3{color:var(--plum);font-size:1.4rem;margin-bottom:.8rem}
+.qs{display:grid;gap:18px;margin:1.6rem 0 2.4rem}
+.q{margin:0;background:var(--card);border-radius:18px;padding:24px 26px;border-inline-start:4px solid var(--sage)}
+.q p{margin:0 0 .8rem}
+.q cite{display:block;font-style:normal;color:var(--muted);font-size:.9rem}
+.q.short{font-size:1rem}
+mark{background:#fde68a;color:#2b2224;padding:1px 5px;border-radius:5px;font-weight:400}
+.parts+.qs{margin:1rem 0 1.6rem}
+h3.sub{font-size:1.45rem;color:var(--plum);margin:2rem 0 0}
+footer{text-align:center;color:var(--muted);font-size:.9rem;padding:30px 0 50px}
+.fade{animation:in .9s ease both}
+@keyframes in{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.fade{animation:none}}
+</style>
+</head>
+<body>
+
+<header class="hero"><div class="wrap fade">
+  <h1>ماذا لو لم تكوني بحاجة إلى مزيد من الوقت؟</h1>
+  <p class="lead">ربما أنتِ تعرفين ما تريدين. لديكِ هدف، مشروع، عادة تريدين بناءها، أو شيء تحبين أن تعودي إليه.</p>
+  <p>لكن وسط العمل والبيت والأسرة ومسؤوليات الحياة، يظل الشيء المهم لكِ هو أول شيء تؤجلينه.</p>
+  <div class="doubts">
+    <p>«لما أفضى.»</p><p>«لما يخف الضغط.»</p><p>«الأسبوع الجاي أبدأ.»</p>
+  </div>
+  <p>لكن الأسبوع الجاي يأتي... ومعه أسبوع آخر.</p>
+  <p class="lead"><strong>يومي مترتب</strong> برنامج Coaching عملي لمدة 6 أسابيع، ينقلكِ من معرفة ما تريدين إلى إعطائه مكانًا حقيقيًا في حياتك. نرتّب فكرك وذاتك قبل أن نرتّب وقتك.</p>
+  <a class="btn" href="#register">سجّلي الآن</a>
+</div></header>
+
+<section class="sand"><div class="wrap">
+  <h2>لن تخوضي هذه الرحلة وحدكِ</h2>
+  <p>من أهم ما اكتشفته في تجربة «يومي مترتب» السابقة أن الفائدة لم تكن فقط في الجلسات الفردية. المجموعة نفسها كانت جزءًا من التجربة.</p>
+  <p>نساء لديهن تحديات متشابهة، وكل واحدة تأتي بأهدافها وظروفها وأسئلتها. تسمعين تجربة امرأة أخرى فتكتشفين شيئًا عن نفسك، وتجدين أن المشكلة التي ظننتِها خاصة بكِ تعيشها أخريات أيضًا.</p>
+  <p>لذلك في النسخة الجديدة، الجلسات الجماعية ليست إضافة جانبية، بل جزء أساسي من طريقة العمل.</p>
+  <div class="parts">
+    <div class="part"><b>6 جلسات Coaching جماعية أسبوعية</b><span>للتدريب والتطبيق ومشاركة التحديات والتعلم من تجارب المجموعة.</span></div>
+  </div>
+  <div class="qs">
+<blockquote class="q">
+      <p>«كورس يومي مترتب كان من أجمل الكورسات اللي أخذتها، وذلك لأنه أضاف لي مهارات حياتية كنت أحتاجها لإنجاز ما كنت أؤجله، والقيام بتعديل حقيقي لجدول مهامي اليومية. حقيقةً الكوتش بأسلوب علمي مبسط ويرتكز على معرفة وقراءة عميقة لعلم التنمية البشرية قدرت توصّل لي بالظبط ما ينقصني ويغيّر حياتي للأفضل. <mark>وحقيقي كنت محظوظة بمجموعة من المنتسبات الواعيات وأيضًا استفدت بمشاركة بعضنا البعض لتجارب وقصص شخصية لكل منهن.</mark> شكرًا جزيلًا وبالتوفيق دائمًا.»</p>
+      و.م.
+    </blockquote>
+<blockquote class="q">
+      <p>«أفضل شي في الكورس أنتِ وكلامك. الكورس ما كان محتاج أي شي زيادة، أي شي كان يتعرض كان بيكون عليه سهل أنه يرتبه، <mark>المجموعة كانت جميلة وكل وحدة بستفيد منها بشي.</mark> غيّرت نظرتي لليوم، بقيت oriented عارفة أي ساعة عدّت في شنو، بقيت واعية في يومي، وشالت مني سلبيات زي التعب الذهني والفكري أو التذمر من اليوم. زمان كنت عشان أدرس الامتحان المهني أحس خمس ساعات في اليوم لا تكفيني، لكن وصلت لأنه ساعة تكفي وأنا مرتاحة، وأكون حاضرة مع أولادي وعارفة أولوياتي.»</p>
+      س.أ.
+    </blockquote>
+  </div>
+  <div class="parts">
+    <div class="part"><b>3 جلسات فردية 1:1 معي</b><span>لنطبّق ما تتعلمينه على حياتك وأهدافك أنتِ.</span></div>
+  </div>
+  <div class="qs">
+<blockquote class="q short"><p>«ما شاء الله اللهم بارك، الوقت مرّ معاكِ من دون ما أشعر. الكلام معاكِ ممتع ومؤثر وخلاني أشوف الموضوع أكثر وضوحًا. ربي يسعدك ويرضيك عنك.»</p>مشاركة عبر واتساب</blockquote>
+<blockquote class="q short"><p>«كنت فاكرة ومعتقدة إن الناس اللي بتتحرك وتعمل الأهداف وتحققها أحسن مني، وإن ربنا خلق ناس بتعرف ده وأنا لا أجيده. لكن سبحان الله، بعد اللقاء اكتشفت إن في أربعة طبائع مختلفة، أو أربع طرق مختلفة في تحقيق الأهداف.»</p>مشاركة عبر واتساب</blockquote>
+<blockquote class="q short"><p>«كنت بفكر كل مرة أدخل معاكِ، والحمد لله كانت أحلى سيشن وما حسيت بالوقت. طلعت بترتيب أفكار وترتيب نقاط معينة أنا تايهة فيها وقت طويل، ولقيت البداية. إن شاء الله نبدأ بداية صح.»</p>رسالة صوتية مكتوبة عبر واتساب</blockquote>
+<blockquote class="q short"><p>«دخلت معاها جلسة أولى... الأهداف اللي كتبتها في بداية الجلسة طلعت مختلفة ٩٠٪ عن الأهداف اللي كتبتها في نهايتها. وفعلًا دي الحاجات اللي كنت بقولها وبتظاهر بيها، لكن في أعماقي أهدافي مختلفة، وهي اكتشفتها ببساطة كأنها ساحرة.»</p>مشاركة عبر واتساب</blockquote>
+  </div>
+  <div class="parts">
+    <div class="part"><b>ورشة عملية لتخطيط الأهداف</b><span>حتى لا تبقى أهدافك مجرد قائمة جميلة.</span></div>
+    <div class="part"><b>ورشة النمط الشخصي</b><span>لتفهمي الطريقة التي تناسبك في العمل والإنجاز وبناء العادات.</span></div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <h2>ماذا ستخرجين به؟</h2>
+  <p>في نهاية البرنامج ستكونين قادرة على:</p>
+  <ul class="checks">
+    <li>تحديد ما هو مهم فعلًا في هذه المرحلة من حياتك.</li>
+    <li>اختيار هدف واضح بدل محاولة تغيير كل شيء في وقت واحد.</li>
+    <li>تحويل الهدف إلى خطوات صغيرة قابلة للتنفيذ.</li>
+    <li>تصميم عادات تناسب حياتك بدل تقليد عادات الآخرين.</li>
+    <li>بناء أسبوع واقعي يأخذ ظروفك ومسؤولياتك في الاعتبار.</li>
+  </ul>
+  <p class="emph">والأهم: أن يصبح للشيء الذي تقولين دائمًا «ما عندي وقت له» مكان فعلي في أسبوعك.</p>
+  <div class="qs" style="margin-bottom:0">
+<blockquote class="q">
+      <p>«صباح الإنجاز 💪 أبشرج، قدرت أمسك بزمام حياتي وأحدث تغييرًا جذريًا في عاداتي نحو حياة أفضل. لو تذكرين هذا كان هدفي من دخول دورة (يومي مترتب). حبيت أشاركج فرحة الإنجاز.»</p>
+      ح.ا. — رسالة واتساب، ٧ نوفمبر ٢٠٢٤
+    </blockquote>
+  </div>
+</div></section>
+
+<section class="sand"><div class="wrap">
+  <h2>هل هو لكِ؟</h2>
+  <p>«يومي مترتب» لكِ إذا...</p>
+  <ul class="checks">
+    <li>لديكِ شيء مهم تريدين البدء فيه أو العودة إليه، لكنكِ تجدين نفسك دائمًا تؤجلينه.</li>
+    <li>تشعرين أنكِ مشغولة طوال الوقت، ومع ذلك لا تتحركين في الأشياء التي تهمك فعلًا.</li>
+    <li>جربتِ التخطيط أو العادات من قبل، لكنكِ لم تجدي الطريقة التي تناسب حياتك.</li>
+    <li>تريدين نظامًا عمليًا، وليس جدولًا مثاليًا جديدًا تشعرين بالذنب لأنكِ لم تلتزمي به.</li>
+    <li>تريدين أن تتعلمي من نفسك ومن تجارب نساء أخريات، وليس فقط أن تسمعي محتوى وتسجليه في دفتر.</li>
+  </ul>
+  <p class="emph">هذا البرنامج ليس عن أن تضغطي المزيد في يومك، بل عن أن تعرفي ما الذي يستحق أن يكون في يومك أصلًا.</p>
+</div></section>
+
+<section id="register"><div class="wrap">
+  <div class="price">
+    <h2>6 أسابيع من الـCoaching والتطبيق</h2>
+    <div class="incl">
+      <div><strong>6</strong>ورش وكوتشينج جماعي</div>
+      <div><strong>3</strong>جلسات 1:1 فردية</div>
+      <div><strong>+</strong>الدعم على واتساب والموارد المصاحبة</div>
+    </div>
+    <p>السعر الأساسي: <span class="old">1,497 AED</span></p>
+    <p>سعر إطلاق دفعة أكتوبر</p>
+    <div class="now">997 AED</div>
+    <div class="facts"><span>📅 البداية: 4 أكتوبر</span><span>👥 <s style="opacity:.65">7</s> <strong style="font-size:1.25em;font-family:'Amiri',serif">5</strong> مقاعد فقط متبقية</span></div>
+    <p>إذا كنتِ تعرفين أن هناك شيئًا مهمًا تؤجلينه منذ فترة، فربما حان الوقت ألا تنتظري أن يصبح يومك فارغًا. سنعمل على إيجاد مكان له داخل حياتك كما هي.</p>
+    <a class="btn" href="https://wa.me/971505232183" target="_blank" rel="noopener">سجّلي الآن عبر واتساب</a>
+    <p style="margin:1.2rem 0 0;font-size:.95rem">للتسجيل والاستفسار: <span dir="ltr">00971505232183</span></p>
+  </div>
+</div></section>
+
+<section class="sand"><div class="wrap">
+  <h2>ضمان «يومي مترتب»</h2>
+  <p>أريدكِ أن تدخلي البرنامج وأنتِ تعرفين أنني جادة في النتيجة التي نعمل عليها معًا. لذلك:</p>
+  <p class="lead">إذا التزمتِ بـ80% من المتطلبات الأساسية للبرنامج، ولم تتمكني رغم ذلك من إيجاد وقت فعلي للهدف الذي دخلتِ البرنامج من أجله، يمكنكِ طلب استرداد كامل المبلغ.</p>
+  <p style="color:var(--muted);font-size:.9rem">تطبق شروط الضمان الموضحة عند التسجيل.</p>
+
+  <div class="why">
+    <h3>لماذا أعدت تصميم «يومي مترتب»؟</h3>
+    <p>لأنني بعد التجربة السابقة لم أكتفِ بسؤال: ماذا تعلمتِ؟ كنت أريد أن أعرف: ما الذي ساعدكِ فعلًا على التغيير؟</p>
+    <p>وكانت إحدى الإجابات التي تكررت: المجموعة.</p>
+    <p>لذلك النسخة الجديدة لا تعتمد فقط على ما يحدث بيني وبينكِ في جلساتك الفردية، بل على قوة أن تخوضي هذه الرحلة مع نساء أخريات، لكل واحدة منهن قصتها وتحدياتها وأهدافها.</p>
+    <p>وتجدين كلام المشاركات بأنفسهن في الأقسام أعلاه بجانب كل عنصر من عناصر البرنامج.</p>
+  </div>
+</div></section>
+
+<footer><div class="wrap">يومي مترتب · النسخة الجديدة · أكتوبر 2026</div></footer>
+</body>
+</html>
